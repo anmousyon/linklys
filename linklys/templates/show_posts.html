@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block body %}
+<div style="padding-top:90px;padding-right:60px;padding-left:60px;padding-bottom:50px;">
+  <ul class="articles">
+  {% for entry in articles %}
+    <li>
+      <div> 
+        <a href="{{ entry.url }}"><h2 id="titleArticle">{{ entry.title }}</h2></a>
+        <em id="articleAuthor"> author: {{ entry.author }} </em>
+        <em>  |   site: {{ entry.source }} </em>
+        <em> |    created: {{ entry.created }} </em>
+        <a href="{{ url_for('add_post', title=entry.title) }}" id="image">
+          <img src="../static/add.png" class="img-circle" alt="add" width="40" height="40">
+        </a>
+        <a href="{{ url_for('related', article=entry.title) }}" id="image"> 
+          <img src="../static/radio.png" class="img-circle" alt="radio" width="40" height="40">
+        </a>
+      </div>
+    </li>
+  {% else %}
+    <li><em>Unbelievable... I've looked everywhere but I can't find any articles! D:</em></li>
+  {% endfor %}
+  </ul>
+</div>
+{% endblock %}

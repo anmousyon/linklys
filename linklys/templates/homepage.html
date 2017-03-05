@@ -1,0 +1,236 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Hey, how are you feeling today?</div>
+                <div class="intro-heading">We can help you change your mood</div>
+                <a href="#services" class="page-scroll btn btn-xl">Show Me</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Choose an emotion</h2>
+                    <h3 class="section-subheading text-muted">Whatever you like</h3>
+                </div>
+            </div>
+            
+            <div class="row text-center" style="padding:10px;">
+             
+                    <a href="{{url_for('show_posts', sort='happy')}}"method="post"class="show-posts">
+                        <div class="col-md-4">
+                            <img src="../static/happy.jpg" class="img-circle" alt="happy face" width="200" height="200">
+                            <h4 class="service-heading">Happy</h4>
+                        </div>
+                    </a>
+                
+                <a href="{{url_for('show_posts', sort='sad')}}"method="post"class="show-posts">
+                    <div class="col-md-4">
+                        <img src="../static/sad.jpg" class="img-circle" alt="sad face" width="200" height="200">
+                        <h4 class="service-heading">Sad</h4>
+                    </div>
+                </a>
+                
+                <a href="{{url_for('show_posts', sort='funny')}}"method="post"class="show-posts">
+                    <div class="col-md-4">
+                        <img src="../static/funny.jpg" class="img-circle" alt="funny face" width="200" height="200">
+                        <h4 class="service-heading">Funny</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="row text-center" style="padding:10px;">
+                
+                <a href="{{url_for('show_posts', sort='flash back')}}"method="post"class="show-posts">
+                    <div class="col-md-4">
+                        <img src="../static/retro.jpg" class="img-circle" alt="flash back face" width="200" height="200">
+                        <h4 class="service-heading">Flash Back</h4>
+                    </div>
+                </a>
+                
+                <a href="{{url_for('show_posts', sort='serious')}}"method="post"class="show-posts">
+                    <div class="col-md-4">
+                        <img src="../static/serious.jpg" class="img-circle" alt="serious face" width="200" height="200">
+                        <h4 class="service-heading">Serious</h4>
+                    </div>
+                </a>
+                
+                <a href="{{url_for('show_posts', sort='old man')}}"method="post"class="show-posts">
+                    <div class="col-md-4">
+                        <img src="../static/oldman.jpg" class="img-circle" alt="old man face" width="200" height="200">
+                        <h4 class="service-heading">Old man</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="row text-center" style="padding:10px;">
+                
+                <a href="{{url_for('show_posts', sort='chill')}}"method="post"class="show-posts">
+                        <div class="col-md-4">
+                            <img src="../static/chill.jpg" class="img-circle" alt="happy face" width="200" height="200">
+                            <h4 class="service-heading">Chill</h4>
+                        </div>
+                    </a>
+                
+                <a href="{{url_for('show_posts', sort='interesting')}}"method="post"class="show-posts">
+                        <div class="col-md-4">
+                            <img src="../static/interesting.jpg" class="img-circle" alt="interesting-face" width="200" height="200">
+                            <h4 class="service-heading">Interesting</h4>
+                        </div>
+                    </a>
+                
+                <a href="{{url_for('show_posts', sort='shocking')}}"method="post"class="show-posts">
+                        <div class="col-md-4">
+                            <img src="../static/shocking.jpg" class="img-circle" alt="interesting-face" width="200" height="200">
+                            <h4 class="service-heading">Shocking</h4>
+                        </div>
+                    </a>
+        
+            </div>
+            
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">General Categories</h2>
+                    <h3 class="section-subheading text-muted">You can also select from categories below.</h3>
+                </div>
+            </div>
+            
+            <div class="row text-center" style="padding:10px;">
+             
+                    <a href="{{url_for('show_posts', sort='news')}}"method="post"class="show-posts">
+                        <div class="col-md-4">
+                            <img src="../static/news.jpg" class="img-circle" alt="news" width="200" height="200">
+                            <h4 class="service-heading">News</h4>
+                        </div>
+                    </a>
+                
+                <a href="{{url_for('show_posts', sort='technology')}}"method="post"class="show-posts">
+                    <div class="col-md-4">
+                        <img src="../static/technology.webp" class="img-circle" alt="technology" width="200" height="200">
+                        <h4 class="service-heading">Technology</h4>
+                    </div>
+                </a>
+                
+                <a href="{{url_for('show_posts', sort='sports')}}"method="post"class="show-posts">
+                    <div class="col-md-4">
+                        <img src="../static/lacrosse.jpg" class="img-circle" alt="sports" width="200" height="200">
+                        <h4 class="service-heading">Sports</h4>
+                    </div>
+                </a>
+
+            </div>
+            <div class="row text-center" style="padding:10px;">
+                
+                <a href="{{url_for('show_posts', sort='business')}}"method="post"class="show-posts">
+                    <div class="col-md-4">
+                        <img src="../static/businessy.jpg" class="img-circle" alt="Business" width="200" height="200">
+                        <h4 class="service-heading">Business</h4>
+                    </div>
+                </a>
+                
+                <a href="{{url_for('show_posts', sort='entertainment')}}"method="post"class="show-posts">
+                    <div class="col-md-4">
+                        <img src="../static/popcorn.jpg" class="img-circle" alt="Entertainment" width="200" height="200">
+                        <h4 class="service-heading">Entertainment</h4>
+                    </div>
+                </a>
+                
+                <a href="{{url_for('show_posts', sort='gaming')}}"method="post"class="show-posts">
+                    <div class="col-md-4">
+                        <img src="../static/gaming.jpg" class="img-circle" alt="Gaming" width="200" height="200">
+                        <h4 class="service-heading">Gaming</h4>
+                    </div>
+                </a>
+
+            </div>
+            <div class="row text-center" style="padding:10px;">
+                
+                <a href="{{url_for('show_posts', sort='music')}}"method="post"class="show-posts">
+                        <div class="col-md-4">
+                            <img src="../static/guitar.jpg" class="img-circle" alt="Music" width="200" height="200">
+                            <h4 class="service-heading">Music</h4>
+                        </div>
+                    </a>
+                
+                <a href="{{url_for('show_posts', sort='science and nature')}}"method="post"class="show-posts">
+                        <div class="col-md-4">
+                            <img src="../static/scienceAndNature.jpg" class="img-circle" alt="Science and Nature" width="200" height="200">
+                            <h4 class="service-heading">Science and Nature</h4>
+                        </div>
+                    </a>
+                
+                <a href="{{url_for('show_posts', sort='Trending')}}"method="post"class="show-posts">
+                        <div class="col-md-4">
+                            <img src="../static/popular.jpg" class="img-circle" alt="Trending" width="200" height="200">
+                            <h4 class="service-heading">Trending</h4>
+                        </div>
+                    </a>
+        
+            </div>
+        
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">About</h2>
+                    <h3 class="section-subheading text-muted" style="padding-right:50px;padding-left:50px;">
+                        This web app provides you with different articles based on your selection of mood.
+                        It can dramatically change your mood no matter how you are feeling.
+                        You have many options to choose from: happy, sad, interesting, sports etc.
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Our Amazing Team</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="../static/ayush.jpg" class="img-responsive img-circle" alt="Ayush">
+                        <h4>Ayush Gupta</h4>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="../static/rohan.jpg" class="img-responsive img-circle" alt="rohan">
+                        <h4>Rohan Maharjan</h4>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="../static/jared.jpg" class="img-responsive img-circle" alt="jared">
+                        <h4>Jared Mosley</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <p class="large text-muted">Three people from three different parts of the world came together and collaborated to create this web app. The idea was originally brought up by Jared Mosley. The other two of us brought his idea to life by using our skills in web development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

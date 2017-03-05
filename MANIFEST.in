@@ -1,0 +1,3 @@
+graft linklys/templates
+graft linklys/static
+include linklys/schema.sql
