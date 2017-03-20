@@ -7,4 +7,4 @@ def build():
     '''start the build process'''
     controller = Controller()
     controller.build()
-    # controller.display_db()
+    controller.display_db()

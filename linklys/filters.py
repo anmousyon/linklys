@@ -1,6 +1,6 @@
 '''filters for posts'''
 
-from .models import Link
+from .models import Article
 
 
 class Filters:
@@ -60,7 +60,7 @@ class Filters:
         cleaned = []
         for article in filtered:
             cleaned.append(
-                Link(
+                Article(
                     url=article['url'],
                     image_url=article['image_url'],
                     title=article['title'],

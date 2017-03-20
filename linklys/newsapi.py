@@ -8,15 +8,10 @@ from .analyzer import Analyzer
 class NewsApi:
     '''api for all news sources'''
     def __init__(self):
-        self.api_key = "678e8e21125d49c9a081c49856ca0bb8"
+        self.api = "678e8e21125d49c9a081c49856ca0bb8"
+        self.base = "https://newsapi.org/v1/articles?source="
+        self.sort = "&sortBy=latest&apiKey="
         self.analyzer = Analyzer()
-
-    def get_sites(self):
-        '''load sites from file'''
-        with open('linklys/sites.txt') as file:
-            sites = file.readlines()
-        cleaned = [site.strip() for site in sites]
-        return cleaned[:5]
 
     def get_sources(self):
         '''get sources, using api'''
@@ -28,30 +23,61 @@ class NewsApi:
         for source in resp['sources']:
             if 'latest' in source['sortBysAvailable']:
                 sources.append(
-                    Source(source)
+                    Source(
+                        source['id'],
+                        source['name'],
+                        source['description'],
+                        source['url'],
+                        source['category'],
+                        source['language']
+                    )
                 )
         return sources
 
     def get_articles(self, source):
         '''get new articles from source, using api'''
         resp = requests.get(
-            "https://newsapi.org/v1/articles?source=" +
-            source.label +
-            "&sortBy=latest&apiKey=" +
-            self.api_key
-        )
+            '{}{}{}{}'.format(self.base, source.label, self.sort, self.api)
+        ).json()
         articles = []
-        resp = resp.json()
         for article in resp['articles']:
             if article['description']:
                 sentiment = self.analyzer.sentiment(article['description'])
+                description = article["description"]
             else:
                 sentiment = "0"
+                description = "none"
+            if article["author"]:
+                author = article["author"]
+            else:
+                author = "none"
+            if article["urlToImage"]:
+                image_url = article["urlToImage"]
+            else:
+                image_url = "none"
+            if article["publishedAt"]:
+                created = article["publishedAt"]
+            else:
+                created = "none"
+            if article["url"]:
+                url = article["url"]
+            else:
+                url = "none"
+            if article["title"]:
+                title = article["title"]
+            else:
+                title = "none"
             articles.append(
                 Article(
-                    article,
-                    source,
-                    sentiment
+                    url=url,
+                    image_url=image_url,
+                    title=title,
+                    description=description,
+                    author=author,
+                    created=created,
+                    sentiment=sentiment,
+                    category=source.category,
+                    source=source.url
                 )
             )
         return articles

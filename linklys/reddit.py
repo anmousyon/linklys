@@ -2,7 +2,7 @@
 
 import praw
 from .analyzer import Analyzer
-from .models import Post
+from .models import Article
 
 
 class Reddit:
@@ -10,6 +10,7 @@ class Reddit:
     def __init__(self):
         self.client = self.login()
         self.analyzer = Analyzer()
+        self.image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Reddit.svg/1024px-Reddit.svg.png"
 
     def login(self):
         '''login to reddit client'''
@@ -33,5 +34,17 @@ class Reddit:
     def get_posts(self, subreddit):
         '''get all posts from subreddit object'''
         dirty = [post for post in subreddit.hot(limit=20)]
-        clean = [Post(post, self.analyzer.sentiment(post.title)) for post in dirty]
+        clean = [
+            Article(
+                post.url,
+                self.image_url,
+                post.title,
+                "",
+                str(post.author),
+                post.created,
+                self.analyzer.sentiment(post.title),
+                post.subreddit,
+                "reddit.com"
+            ) for post in dirty
+        ]
         return clean
